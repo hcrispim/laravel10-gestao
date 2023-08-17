@@ -1,0 +1,4 @@
+        $(document).ready(function() {
+            console.log($('#mascara_valor').get(0))
+            $('#mascara_valor').mask('#.##0,00', {reverse: true})
+        });

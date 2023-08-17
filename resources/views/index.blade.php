@@ -133,7 +133,8 @@
     </div>
 
     {{-- @yield('scripts') --}}
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script> --}}
+    <script src={{ asset('js/jquery-3.7.0.js') }}></script>
     <script src={{ asset('js/bootstrap.bundle.min.js') }}></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
@@ -141,16 +142,14 @@
     <script src={{ asset('js/color-modes.js') }}></script>
     <script src={{ asset('js/chart.umd.min.js') }}></script>
     {{-- InputMask --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script> --}}
     {{-- BlocUI loading --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"> </script> --}}
     {{-- <script src={{ asset('js/jquery.inputmask.bundle.js') }}></script> --}}
-    <script type="text/javascript" src={{ asset('js/jquery.mask.min.js') }}></script>
+    <script src={{ asset('js/jquery.mask.min.js') }}></script>
     {{-- <script src="hhttps://cdnjs.com/libraries/jquery.mask"></script> --}}
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#mascara_valor').mask('#.##0,00', {reverse: true})
-        });
+    <script>
+         $('#mascara_valor').mask('#.##0,00', {reverse: true})
     </script>
 
 </body>
