@@ -141,16 +141,17 @@
     <script src={{ asset('js/dashboard.js') }}></script>
     <script src={{ asset('js/color-modes.js') }}></script>
     <script src={{ asset('js/chart.umd.min.js') }}></script>
+    <script src={{ asset('js/jquery.mask.min.js') }}></script>
     {{-- InputMask --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script> --}}
     {{-- BlocUI loading --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"> </script> --}}
     {{-- <script src={{ asset('js/jquery.inputmask.bundle.js') }}></script> --}}
-    <script src={{ asset('js/jquery.mask.min.js') }}></script>
+
     {{-- <script src="hhttps://cdnjs.com/libraries/jquery.mask"></script> --}}
-    <script>
-         $('#mascara_valor').mask('#.##0,00', {reverse: true})
-    </script>
+   <!-- Carrega o Script Personalizado na Página aqui -->
+    @yield("script")
+
 
 </body>
 

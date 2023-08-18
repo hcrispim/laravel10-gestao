@@ -1,5 +1,13 @@
 @extends('index')
 
+@section('script')
+<script>
+    $(document).ready(function($){
+       $('#mascara_valor').mask('#.##0,00', {reverse: true})
+   });
+</script>
+@endsection
+
 @section('content')
     <form class="form" method="POST" action="{{ route('cadastrar.produto') }}">
         @csrf
@@ -15,7 +23,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Valor</label>
-            <input id='mascara_valor' name="valor" class="form-control @error('valor') is-invalid @enderror"
+            <input id="mascara_valor" name="valor" class="form-control @error('valor') is-invalid @enderror"
                 data-inputmask="'mask': '#.##0,00'" />
             @if ($errors->has('valor'))
                 <div class="invalid-feedback"> {{ $errors->first('valor') }} </div>
