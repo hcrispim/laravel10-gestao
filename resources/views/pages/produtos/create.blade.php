@@ -1,11 +1,13 @@
 @extends('index')
 
 @section('script')
-<script>
-    $(document).ready(function($){
-       $('#mascara_valor').mask('#.##0,00', {reverse: true})
-   });
-</script>
+    <script>
+        $(document).ready(function($) {
+            $('#mascara_valor').mask('#.##0,00', {
+                reverse: true
+            })
+        });
+    </script>
 @endsection
 
 @section('content')
@@ -16,14 +18,14 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Nome</label>
-            <input type="text" class="form-control @error('nome') is-invalid @enderror" name="nome" />
+            <input type="text" value="{{ @old('nome')}}" class="form-control @error('nome') is-invalid @enderror" name="nome" />
             @if ($errors->has('nome'))
                 <div class="invalid-feedback"> {{ $errors->first('nome') }} </div>
             @endif
         </div>
         <div class="mb-3">
             <label class="form-label">Valor</label>
-            <input id="mascara_valor" name="valor" class="form-control @error('valor') is-invalid @enderror"
+            <input id="mascara_valor" name="valor" value="{{ @old('valor')}}"  class="form-control @error('valor') is-invalid @enderror"
                 data-inputmask="'mask': '#.##0,00'" />
             @if ($errors->has('valor'))
                 <div class="invalid-feedback"> {{ $errors->first('valor') }} </div>
@@ -33,5 +35,4 @@
         <button type="submit" class="btn btn-success">CADASTRAR</button>
 
     </form>
-
 @endsection

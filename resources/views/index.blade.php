@@ -7,11 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
+
     <title>Dashboard</title>
 
     {{-- @yield('styles') --}}
 
     <!-- Custom styles for this template -->
+    <link href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet" >
+
     <link href={{ asset('css/bootstrap-icons.css') }} rel="stylesheet">
 
     <link href={{ asset('css/bootstrap.min.css') }} rel="stylesheet">
@@ -107,12 +110,6 @@
     {{-- BARRA PRETA --}}
     <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">GESTÃO</a>
-        {{-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> --}}
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <a class="nav-link px-3" href="#">Sair</a>
@@ -132,8 +129,7 @@
         </div>
     </div>
 
-    {{-- @yield('scripts') --}}
-    {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script> --}}
+    {{-- Este jquery tambem atende ao mask valor --}}
     <script src={{ asset('js/jquery-3.7.0.js') }}></script>
     <script src={{ asset('js/bootstrap.bundle.min.js') }}></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
@@ -142,16 +138,13 @@
     <script src={{ asset('js/color-modes.js') }}></script>
     <script src={{ asset('js/chart.umd.min.js') }}></script>
     <script src={{ asset('js/jquery.mask.min.js') }}></script>
-    {{-- InputMask --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.8/jquery.inputmask.min.js"></script> --}}
-    {{-- BlocUI loading --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"> </script> --}}
-    {{-- <script src={{ asset('js/jquery.inputmask.bundle.js') }}></script> --}}
 
-    {{-- <script src="hhttps://cdnjs.com/libraries/jquery.mask"></script> --}}
-   <!-- Carrega o Script Personalizado na Página aqui -->
-    @yield("script")
 
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    @yield('script')
+    {!! Toastr::message() !!}
 
 </body>
 

@@ -1,7 +1,9 @@
 @extends('index');
 
 @section('content')
-
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Produtos</h1>
+    </div>
     <div>
         <br>
         <form action="{{ route('produto.index') }}" method="get">
@@ -30,16 +32,12 @@
                                 <td>{{ $produto->nome }}</td>
                                 <td>{{ 'RS' . ' ' . number_format($produto->valor, 2, ',', '.') }}</td>
                                 <td>
-                                    <a class="btn btn-light btn-sm" href="#" role="button">
+                                    <a href="{{ route('atualizar.produto', $produto->id) }}" class="btn btn-light btn-sm"
+                                        role="button">
                                         Editar
                                     </a>
-                                    {{-- <meta name='csrf-token' content="{{ csrf_token()}}" />
-                                <a onclick="deleteRegistroPaginacao('{{route('produto.delete')}}', {{$produto->id}})"
-                                   class="btn btn-danger btn-sm">Excluir
-                                </a> --}}
-                                    {{-- <a class="btn btn-danger btn-sm" href="{{ 'produto.delete',''}}" role="button">
-                                    Excluir
-                                </a> --}}
+                                </td>
+                                <td>
                                     <form id="form_{{ $produto->id }}" method="post"
                                         action="{{ route('produto.delete', ['id' => $produto->id]) }}">
                                         @method('DELETE')
@@ -48,7 +46,6 @@
                                         <a href="#"
                                             onclick="document.getElementById('form_{{ $produto->id }}').submit()">
                                     </form>
-
                                 </td>
                             </tr>
                         @endforeach
