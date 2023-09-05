@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VendasController;
 use App\Http\Controllers\ClientesController;
@@ -16,9 +16,9 @@ use App\Http\Controllers\ProdutosController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::middleware('auth')->get('/', function () {
+//     return view('index');
+// });
 
 // Exemplo http://localhost:8989/produtos
 Route::prefix('produtos')->group( function() {
@@ -55,3 +55,18 @@ Route::prefix('vendas')->group( function() {
     // Route::put('/atualizarCliente/{id}', [VendasController::class, 'atualizarVenda'])->name('atualizar.venda');
 });
 
+ Route::get('/', function () {
+     return view('index');
+ });
+
+Route::get('/welcome', function () {
+    return view('welcome');
+})->middleware(['auth', 'verified'])->name('welcome');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

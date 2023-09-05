@@ -61,7 +61,17 @@ services:
         image: redis:latest
         networks:
             - laravel
-
+    # node
+    node:
+        image: node:12
+        ports:
+        - "3000:3000"
+        volumes:
+        - ./:/srv/app
+        working_dir: /srv/app
+        command: "npx nodemon index.js "
+        networks:
+             - laravel
 networks:
     laravel:
         driver: bridge

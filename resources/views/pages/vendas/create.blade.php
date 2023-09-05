@@ -46,32 +46,6 @@
         </div>
 
 
-        {{-- <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input id="email" name="email" value="{{ @old('email') }}"
-                class="form-control @error('email') is-invalid @enderror" />
-            @if ($errors->has('email'))
-                <div class="invalid-feedback"> {{ $errors->first('email') }} </div>
-            @endif
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">CEP</label>
-            <input id="cep" name="cep" value="{{ @old('cep') }}"
-                class="form-control @error('cep') is-invalid @enderror" />
-            @if ($errors->has('cep'))
-                <div class="invalid-feedback"> {{ $errors->first('cep') }} </div>
-            @endif
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Endereço</label>
-            <input id="endereco" name="endereco" value="{{ @old('endereco') }}"
-                class="form-control @error('cep') is-invalid @enderror" />
-            @if ($errors->has('endereco'))
-                <div class="invalid-feedback"> {{ $errors->first('endereco') }} </div>
-            @endif
-        </div> --}}
 
         <button type="submit" class="btn btn-success">CADASTRAR</button>
 
